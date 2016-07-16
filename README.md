@@ -137,13 +137,9 @@
 2. 暂存区：输入命令：`git add 改动的文件名`，此次改动就放到了‘暂存区’
 3. 本地仓库：输入命令：`git commit 此次修改的描述`，此次改动就放到了’本地仓库’，每个commit，我叫它为一个‘版本’
 4. 远程仓库：输入命令：`git push 远程仓库`，此次改动就放到了‘远程仓库’（github等)
+5. commit-id：
 
-## Everyday Git in twenty commands or so
-```sh
-git help everyday
-```
-
-## Show helpful guides that come with Git
+## 展示帮助信息
 ```sh
 git help -g
 ```
@@ -176,11 +172,6 @@ git diff --cached
 输出**工作区**、**暂存区** 和本地最近的版本(commit)的different(不同)。
 ```sh
 git diff HEAD
-```
-
-## List all branches that are already merged into master
-```sh
-git branch --merged master
 ```
 
 ## 快速切换分支
@@ -229,39 +220,40 @@ git tag -d <tag-name>
 git push origin :refs/tags/<tag-name>
 ```
 
-## Undo local changes with the last content in head
+## 放弃工作区的修改
 ```sh
-git checkout -- <file_name>
+git checkout <file_name>
 ```
 
-## Revert: Undo a commit by creating a new commit
+放弃所有修改：  
 ```sh
-git revert <commit-ish>
+git checkout .
 ```
 
-## Reset: Discard commits, advised for private branch
+## 回到某一个commit的状态，并重新增添一个commit
 ```sh
-git reset <commit-ish>
+git revert <commit-id>
 ```
 
-## Reword the previous commit message
+## 回到某个commit的状态，并删除后面的commit
+和revert的区别：reset命令会抹去某个commit id之后的所有commit
 ```sh
-git commit -v --amend
+git reset <commit-id>
 ```
 
-## See commit history for just the current branch
+## 修改上一个commit的描述
 ```sh
-git cherry -v master
+git commit --amend
 ```
 
-## Amend author.
+## 查看commit历史
+```sh
+git log
+```
+
+## 修改作者名
 ```sh
 git commit --amend --author='Author Name <email@address.com>'
-```
-
-## Reset author, after author has been changed in the global config.
-```sh
-git commit --amend --reset-author --no-edit
 ```
 
 ## 修改远程仓库的url
@@ -286,111 +278,63 @@ git branch -a
 git branch -r
 ```
 
-## Stage parts of a changed file, instead of the entire file
-```sh
-git add -p
-```
-
-## Get git bash completion
-```sh
-curl http://git.io/vfhol > ~/.git-completion.bash && echo '[ -f ~/.git-completion.bash ] && . ~/.git-completion.bash' >> ~/.bashrc
-```
-
 ## 查看两个星期内的改动
 ```sh
 git whatchanged --since='2 weeks ago'
 ```
 
-## See all commits made since forking from master
+## 把A分支的某一个commit，放到B分支上
+这个过程需要`cherry-pick`命令，[参考](http://sg552.iteye.com/blog/1300713#bc2367928)
 ```sh
-git log --no-merges --stat --reverse master..
+git checkout <branch-name> && git cherry-pick <commit-id>
 ```
 
-## Pick commits across branches using cherry-pick
-```sh
-git checkout <branch-name> && git cherry-pick <commit-ish>
-```
+## 给git命令起别名
+简化命令
 
-## Find out branches containing commit-hash
-```sh
-git branch -a --contains <commit-ish>
-```
-
-
-__Alternatives:__
-```sh
-git branch --contains <commit-ish>
-```
-
-## Git Aliases
 ```sh
 git config --global alias.<handle> <command>
+
+比如：git status 改成 git st，这样可以简化命令
+
 git config --global alias.st status
 ```
 
-## Saving current state of tracked files without commiting
+## 存储当前的修改，但不用提交commit
+详解可以参考[廖雪峰老师的git教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137602359178794d966923e5c4134bc8bf98dfb03aea3000)
 ```sh
 git stash
 ```
 
-
-__Alternatives:__
+## 保存当前状态，包括untracked的文件
+untracked文件：新建的文件
 ```sh
-git stash save
+git stash -u
 ```
 
-## Saving current state including untracked files
-```sh
-git stash save -u
-```
-
-
-__Alternatives:__
-```sh
-git stash save --include-untracked
-```
-
-## Show list of all saved stashes
+## 展示所有stashes
 ```sh
 git stash list
 ```
 
-## Apply any stash without deleting from the stashed list
+## 回到某个stash的状态
 ```sh
 git stash apply <stash@{n}>
 ```
 
-## Apply last stashed state and delete it from stashed list
+## 回到最后一个stash的状态，并删除这个stash
 ```sh
 git stash pop
 ```
 
-
-__Alternatives:__
-```sh
-git stash apply stash@{0} && git stash drop stash@{0}
-```
-
-## Delete all stored stashes
+## 删除所有的stash
 ```sh
 git stash clear
 ```
 
-
-__Alternatives:__
-```sh
-git stash drop <stash@{n}>
-```
-
-## Grab a single file from a stash
+## 从stash中拿出某个文件的修改
 ```sh
 git checkout <stash@{n}> -- <file_path>
-```
-
-
-__Alternatives:__
-```sh
-git checkout stash@{0} -- <file_path>
 ```
 
 ## Show all tracked files
@@ -664,11 +608,6 @@ git rebase -i --autosquash
 ## skip staging area during commit.
 ```sh
 git commit --only <file_path>
-```
-
-## Interactive staging.
-```sh
-git add -i
 ```
 
 ## 展示忽略的文件
