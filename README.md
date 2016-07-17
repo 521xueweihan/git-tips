@@ -11,126 +11,6 @@
 ---
 
 * [Everyday Git in twenty commands or so](#everyday-git-in-twenty-commands-or-so)
-* [Show helpful guides that come with Git](#show-helpful-guides-that-come-with-git)
-* [Overwrite pull](#overwrite-pull)
-* [List of all files till a commit](#list-of-all-files-till-a-commit)
-* [Git reset first commit](#git-reset-first-commit)
-* [List all the conflicted files](#list-all-the-conflicted-files)
-* [List of all files changed in a commit](#list-of-all-files-changed-in-a-commit)
-* [Unstaged changes since last commit](#unstaged-changes-since-last-commit)
-* [Changes staged for commit](#changes-staged-for-commit)
-* [Show both staged and unstaged changes](#show-both-staged-and-unstaged-changes)
-* [List all branches that are already merged into master](#list-all-branches-that-are-already-merged-into-master)
-* [Quickly switch to the previous branch](#quickly-switch-to-the-previous-branch)
-* [Remove branches that have already been merged with master](#remove-branches-that-have-already-been-merged-with-master)
-* [List all branches and their upstreams, as well as last commit on branch](#list-all-branches-and-their-upstreams-as-well-as-last-commit-on-branch)
-* [Track upstream branch](#track-upstream-branch)
-* [Delete local branch](#delete-local-branch)
-* [Delete remote branch](#delete-remote-branch)
-* [Delete local tag](#delete-local-tag)
-* [Delete remote tag](#delete-remote-tag)
-* [Undo local changes with the last content in head](#undo-local-changes-with-the-last-content-in-head)
-* [Revert: Undo a commit by creating a new commit](#revert-undo-a-commit-by-creating-a-new-commit)
-* [Reset: Discard commits, advised for private branch](#reset-discard-commits-advised-for-private-branch)
-* [Reword the previous commit message](#reword-the-previous-commit-message)
-* [See commit history for just the current branch](#see-commit-history-for-just-the-current-branch)
-* [Amend author.](#amend-author)
-* [Reset author, after author has been changed in the global config.](#reset-author-after-author-has-been-changed-in-the-global-config)
-* [Changing a remote's URL](#changing-a-remotes-url)
-* [Get list of all remote references](#get-list-of-all-remote-references)
-* [Get list of all local and remote branches](#get-list-of-all-local-and-remote-branches)
-* [Get only remote branches](#get-only-remote-branches)
-* [Stage parts of a changed file, instead of the entire file](#stage-parts-of-a-changed-file-instead-of-the-entire-file)
-* [Get git bash completion](#get-git-bash-completion)
-* [What changed since two weeks?](#what-changed-since-two-weeks)
-* [See all commits made since forking from master](#see-all-commits-made-since-forking-from-master)
-* [Pick commits across branches using cherry-pick](#pick-commits-across-branches-using-cherry-pick)
-* [Find out branches containing commit-hash](#find-out-branches-containing-commit-hash)
-* [Git Aliases](#git-aliases)
-* [Saving current state of tracked files without commiting](#saving-current-state-of-tracked-files-without-commiting)
-* [Saving current state including untracked files](#saving-current-state-including-untracked-files)
-* [Show list of all saved stashes](#show-list-of-all-saved-stashes)
-* [Apply any stash without deleting from the stashed list](#apply-any-stash-without-deleting-from-the-stashed-list)
-* [Apply last stashed state and delete it from stashed list](#apply-last-stashed-state-and-delete-it-from-stashed-list)
-* [Delete all stored stashes](#delete-all-stored-stashes)
-* [Grab a single file from a stash](#grab-a-single-file-from-a-stash)
-* [Show all tracked files](#show-all-tracked-files)
-* [Show all untracked files](#show-all-untracked-files)
-* [Show all ignored files](#show-all-ignored-files)
-* [Create new working tree from a repository (git 2.5)](#create-new-working-tree-from-a-repository-git-25)
-* [Create new working tree from HEAD state](#create-new-working-tree-from-head-state)
-* [Untrack files without deleting](#untrack-files-without-deleting)
-* [Before deleting untracked files/directory, do a dry run to get the list of these files/directories](#before-deleting-untracked-filesdirectory-do-a-dry-run-to-get-the-list-of-these-filesdirectories)
-* [Forcefully remove untracked files](#forcefully-remove-untracked-files)
-* [Forcefully remove untracked directory](#forcefully-remove-untracked-directory)
-* [Update all the submodules](#update-all-the-submodules)
-* [Show all commits in the current branch yet to be merged to master](#show-all-commits-in-the-current-branch-yet-to-be-merged-to-master)
-* [Rename a branch](#rename-a-branch)
-* [rebases 'feature' to 'master' and merges it in to master ](#rebases-feature-to-master-and-merges-it-in-to-master)
-* [Archive the `master` branch](#archive-the-master-branch)
-* [Modify previous commit without modifying the commit message](#modify-previous-commit-without-modifying-the-commit-message)
-* [Prunes references to remote branches that have been deleted in the remote.](#prunes-references-to-remote-branches-that-have-been-deleted-in-the-remote)
-* [Retrieve the commit hash of the initial revision.](#retrieve-the-commit-hash-of-the-initial-revision)
-* [Visualize the version tree.](#visualize-the-version-tree)
-* [Deploying git tracked subfolder to gh-pages](#deploying-git-tracked-subfolder-to-gh-pages)
-* [Adding a project to repo using subtree](#adding-a-project-to-repo-using-subtree)
-* [Get latest changes in your repo for a linked project using subtree](#get-latest-changes-in-your-repo-for-a-linked-project-using-subtree)
-* [Export a branch with history to a file.](#export-a-branch-with-history-to-a-file)
-* [Import from a bundle](#import-from-a-bundle)
-* [Get the name of current branch.](#get-the-name-of-current-branch)
-* [Ignore one file on commit (e.g. Changelog).](#ignore-one-file-on-commit-eg-changelog)
-* [Stash changes before rebasing](#stash-changes-before-rebasing)
-* [Fetch pull request by ID to a local branch](#fetch-pull-request-by-id-to-a-local-branch)
-* [Show the most recent tag on the current branch.](#show-the-most-recent-tag-on-the-current-branch)
-* [Show inline word diff.](#show-inline-word-diff)
-* [Don’t consider changes for tracked file.](#dont-consider-changes-for-tracked-file)
-* [Undo assume-unchanged.](#undo-assume-unchanged)
-* [Clean the files from `.gitignore`.](#clean-the-files-from-gitignore)
-* [Restore deleted file.](#restore-deleted-file)
-* [Restore file to a specific commit-hash](#restore-file-to-a-specific-commit-hash)
-* [Always rebase instead of merge on pull.](#always-rebase-instead-of-merge-on-pull)
-* [List all the alias and configs.](#list-all-the-alias-and-configs)
-* [Make git case sensitive.](#make-git-case-sensitive)
-* [Add custom editors.](#add-custom-editors)
-* [Auto correct typos.](#auto-correct-typos)
-* [Check if the change was a part of a release.](#check-if-the-change-was-a-part-of-a-release)
-* [Dry run. (any command that supports dry-run flag should do.)](#dry-run-any-command-that-supports-dry-run-flag-should-do)
-* [Marks your commit as a fix of a previous commit.](#marks-your-commit-as-a-fix-of-a-previous-commit)
-* [squash fixup commits normal commits.](#squash-fixup-commits-normal-commits)
-* [skip staging area during commit.](#skip-staging-area-during-commit)
-* [Interactive staging.](#interactive-staging)
-* [List ignored files.](#list-ignored-files)
-* [Status of ignored files.](#status-of-ignored-files)
-* [Commits in Branch1 that are not in Branch2](#commits-in-branch1-that-are-not-in-branch2)
-* [reuse recorded resolution, record and reuse previous conflicts resolutions.](#reuse-recorded-resolution-record-and-reuse-previous-conflicts-resolutions)
-* [Open all conflicted files in an editor.](#open-all-conflicted-files-in-an-editor)
-* [Count unpacked number of objects and their disk consumption.](#count-unpacked-number-of-objects-and-their-disk-consumption)
-* [Prune all unreachable objects from the object database.](#prune-all-unreachable-objects-from-the-object-database)
-* [Instantly browse your working repository in gitweb.](#instantly-browse-your-working-repository-in-gitweb)
-* [View the GPG signatures in the commit log](#view-the-gpg-signatures-in-the-commit-log)
-* [Remove entry in the global config.](#remove-entry-in-the-global-config)
-* [Checkout a new branch without any history](#checkout-a-new-branch-without-any-history)
-* [Extract file from another branch.](#extract-file-from-another-branch)
-* [List only the root and merge commits.](#list-only-the-root-and-merge-commits)
-* [Change previous two commits with an interactive rebase.](#change-previous-two-commits-with-an-interactive-rebase)
-* [List all branch is WIP](#list-all-branch-is-wip)
-* [Find guilty with binary search](#find-guilty-with-binary-search)
-* [Bypass pre-commit and commit-msg githooks](#bypass-pre-commit-and-commit-msg-githooks)
-* [List commits and changes to a specific file (even through renaming)](#list-commits-and-changes-to-a-specific-file-even-through-renaming)
-* [Clone a single branch](#clone-a-single-branch)
-* [Create and switch new branch](#create-and-switch-new-branch)
-* [Ignore file mode changes on commits](#ignore-file-mode-changes-on-commits)
-* [Turn off git colored terminal output](#turn-off-git-colored-terminal-output)
-* [specific color settings](#specific-color-settings)
-* [Show all local branches ordered by recent commits](#show-all-local-branches-ordered-by-recent-commits)
-* [Find lines matching the pattern (regex or string) in tracked files](#find-lines-matching-the-pattern-regex-or-string-in-tracked-files)
-* [Clone a shallow copy of a repository](#clone-a-shallow-copy-of-a-repository)
-* [Search Commit log across all branches for given text](#search-commit-log-across-all-branches-for-given-text)
-* [Get first commit in a branch (from master)](#get-first-commit-in-a-branch-from-master)
-* [Unstaging Staged file](#unstaging-staged-file)
-* [Force push to Remote Repository](#force-push-to-remote-repository)
-* [Adding Remote name](#adding-remote-name)
-
 
 ## 统一概念
 1. 工作区：改动（增删文件和文本）
@@ -378,58 +258,21 @@ git rm --cached -r <directory_path>
 git clean -n
 ```
 
-## Forcefully remove untracked files
+## 强制删除untracked的文件
+清空工作区untracked的文件
 ```sh
 git clean -f
 ```
 
-## Forcefully remove untracked directory
-```sh
-git clean -f -d
-```
-
-
-__Alternatives:__
+## 强制删除untracked的目录
+清空工作区untracked的目录
 ```sh
 git clean -df
 ```
 
-## Update all the submodules
-```sh
-git submodule foreach git pull
-```
-
-
-__Alternatives:__
-```sh
-git submodule update --init --recursive
-```
-
-
-```sh
-git submodule update --remote
-```
-
-## Show all commits in the current branch yet to be merged to master
-```sh
-git cherry -v master
-```
-
-
-__Alternatives:__
-```sh
-git cherry -v master <branch-to-be-merged>
-```
-
-## Rename a branch
+## 重命名分支
 ```sh
 git branch -m <new-branch-name>
-```
-
-
-__Alternatives:__
-```sh
-git branch -m [<old-branch-name>] <new-branch-name>
 ```
 
 ## rebases 'feature' to 'master' and merges it in to master
@@ -463,15 +306,9 @@ git remote prune origin
  git rev-list --reverse HEAD | head -1
 ```
 
-## Visualize the version tree.
+## 展示简化的commit历史
 ```sh
 git log --pretty=oneline --graph --decorate --all
-```
-
-
-__Alternatives:__
-```sh
-gitk --all
 ```
 
 ## Deploying git tracked subfolder to gh-pages
