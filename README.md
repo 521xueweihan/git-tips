@@ -217,45 +217,24 @@ git stash clear
 git checkout <stash@{n}> -- <file_path>
 ```
 
-## Show all tracked files
+## 展示所有tracked的文件
 ```sh
 git ls-files -t
 ```
 
-## Show all untracked files
+## 展示所有untracked的文件
 ```sh
 git ls-files --others
 ```
 
-## Show all ignored files
+## 展示所有忽略的文件
 ```sh
 git ls-files --others -i --exclude-standard
-```
-
-## Create new working tree from a repository (git 2.5)
-```sh
-git worktree add -b <branch-name> <path> <start-point>
 ```
 
 ## Create new working tree from HEAD state
 ```sh
 git worktree add --detach <path> HEAD
-```
-
-## Untrack files without deleting
-```sh
-git rm --cached <file_path>
-```
-
-
-__Alternatives:__
-```sh
-git rm --cached -r <directory_path>
-```
-
-## Before deleting untracked files/directory, do a dry run to get the list of these files/directories
-```sh
-git clean -n
 ```
 
 ## 强制删除untracked的文件
@@ -273,16 +252,6 @@ git clean -df
 ## 重命名分支
 ```sh
 git branch -m <new-branch-name>
-```
-
-## rebases 'feature' to 'master' and merges it in to master
-```sh
-git checkout feature && git rebase @{-1} && git checkout @{-2} && git merge @{-1}
-```
-
-## Archive the `master` branch
-```sh
-git archive master --format=zip --output=master.zip
 ```
 
 ## Modify previous commit without modifying the commit message
@@ -402,7 +371,7 @@ git checkout <commit-ish> -- <file_path>
 git config --global branch.autosetuprebase always
 ```
 
-## List all the alias and configs.
+## 展示所有alias和configs.
 ```sh
 git config --list
 ```
@@ -415,11 +384,6 @@ git config --global core.ignorecase false
 ## Add custom editors.
 ```sh
 git config --global core.editor '$EDITOR'
-```
-
-## Auto correct typos.
-```sh
-git config --global help.autocorrect 1
 ```
 
 ## Check if the change was a part of a release.
