@@ -232,11 +232,6 @@ git ls-files --others
 git ls-files --others -i --exclude-standard
 ```
 
-## Create new working tree from HEAD state
-```sh
-git worktree add --detach <path> HEAD
-```
-
 ## 强制删除untracked的文件
 清空工作区untracked的文件
 ```sh
@@ -254,60 +249,20 @@ git clean -df
 git branch -m <new-branch-name>
 ```
 
-## Modify previous commit without modifying the commit message
-```sh
-git add --all && git commit --amend --no-edit
-```
-
-## Prunes references to remote branches that have been deleted in the remote.
-```sh
-git fetch -p
-```
-
-
-__Alternatives:__
-```sh
-git remote prune origin
-```
-
-## Retrieve the commit hash of the initial revision.
-```sh
- git rev-list --reverse HEAD | head -1
-```
-
 ## 展示简化的commit历史
 ```sh
 git log --pretty=oneline --graph --decorate --all
 ```
 
-## Deploying git tracked subfolder to gh-pages
-```sh
-git subtree push --prefix subfolder_name origin gh-pages
-```
-
-## Adding a project to repo using subtree
-```sh
-git subtree add --prefix=<directory_name>/<project_name> --squash git@github.com:<username>/<project_name>.git master
-```
-
-## Get latest changes in your repo for a linked project using subtree
-```sh
-git subtree pull --prefix=<directory_name>/<project_name> --squash git@github.com:<username>/<project_name>.git master
-```
-
-## Export a branch with history to a file.
+## 把某一个分支到导出成一个文件
 ```sh
 git bundle create <file> <branch-name>
 ```
 
-## Import from a bundle
+## 从包中导入分支
+新建一个分支，分支内容就是上面`git bundle create`命令导出的内容
 ```sh
 git clone repo.bundle <repo-dir> -b <branch-name>
-```
-
-## Get the name of current branch.
-```sh
-git rev-parse --abbrev-ref HEAD
 ```
 
 ## Ignore one file on commit (e.g. Changelog).
@@ -366,49 +321,9 @@ git checkout <deleting_commit>^ -- <file_path>
 git checkout <commit-ish> -- <file_path>
 ```
 
-## Always rebase instead of merge on pull.
-```sh
-git config --global branch.autosetuprebase always
-```
-
 ## 展示所有alias和configs.
 ```sh
 git config --list
-```
-
-## Make git case sensitive.
-```sh
-git config --global core.ignorecase false
-```
-
-## Add custom editors.
-```sh
-git config --global core.editor '$EDITOR'
-```
-
-## Check if the change was a part of a release.
-```sh
-git name-rev --name-only <SHA-1>
-```
-
-## Dry run. (any command that supports dry-run flag should do.)
-```sh
-git clean -fd --dry-run
-```
-
-## Marks your commit as a fix of a previous commit.
-```sh
-git commit --fixup <SHA-1>
-```
-
-## squash fixup commits normal commits.
-```sh
-git rebase -i --autosquash
-```
-
-## skip staging area during commit.
-```sh
-git commit --only <file_path>
 ```
 
 ## 展示忽略的文件
