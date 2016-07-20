@@ -233,15 +233,19 @@ git ls-files --others -i --exclude-standard
 ```
 
 ## 强制删除untracked的文件
-清空工作区untracked的文件
+可以用来删除新建的文件。如果不指定文件文件名，则清空所有工作的untracked文件。`clean`命令，**注意两点**：  
+1. clean后，删除的文件无法找回
+2. 不会影响tracked的文件的改动，只会删除untracked的文件
+
 ```sh
-git clean -f
+git clean <file_name> -f
 ```
 
 ## 强制删除untracked的目录
-清空工作区untracked的目录
+可以用来删除新建的目录，**注意**:这个命令也可以用来删除untracked的文件。详情见上一条
+
 ```sh
-git clean -df
+git clean <directory_name> -df
 ```
 
 ## 重命名分支
@@ -265,60 +269,29 @@ git bundle create <file> <branch-name>
 git clone repo.bundle <repo-dir> -b <branch-name>
 ```
 
-## Ignore one file on commit (e.g. Changelog).
-```sh
-git update-index --assume-unchanged Changelog; git commit -a; git update-index --no-assume-unchanged Changelog
-```
-
-## Stash changes before rebasing
+## 执行rebase之前自动stash
 ```sh
 git rebase --autostash
 ```
 
-## Fetch pull request by ID to a local branch
+## 从远程仓库根据ID，拉下某一状态，到本地分支
 ```sh
 git fetch origin pull/<id>/head:<branch-name>
 ```
 
-
-__Alternatives:__
-```sh
-git pull origin pull/<id>/head:<branch-name>
-```
-
-## Show the most recent tag on the current branch.
+## 展示当前分支的最近的tag
 ```sh
 git describe --tags --abbrev=0
 ```
 
-## Show inline word diff.
+## 详细展示一行中的修改
 ```sh
 git diff --word-diff
 ```
 
-## Don’t consider changes for tracked file.
-```sh
-git update-index --assume-unchanged <file_name>
-```
-
-## Undo assume-unchanged.
-```sh
-git update-index --no-assume-unchanged <file_name>
-```
-
-## Clean the files from `.gitignore`.
+## 清除`.gitignore`文件中记录的文件
 ```sh
 git clean -X -f
-```
-
-## Restore deleted file.
-```sh
-git checkout <deleting_commit>^ -- <file_path>
-```
-
-## Restore file to a specific commit-hash
-```sh
-git checkout <commit-ish> -- <file_path>
 ```
 
 ## 展示所有alias和configs.
@@ -334,31 +307,6 @@ git status --ignored
 ## commit历史中显示Branch1有的，但是Branch2没有commit
 ```sh
 git log Branch1 ^Branch2
-```
-
-## reuse recorded resolution, record and reuse previous conflicts resolutions.
-```sh
-git config --global rerere.enabled 1
-```
-
-## Open all conflicted files in an editor.
-```sh
-git diff --name-only | uniq | xargs $EDITOR
-```
-
-## Count unpacked number of objects and their disk consumption.
-```sh
-git count-objects --human-readable
-```
-
-## Prune all unreachable objects from the object database.
-```sh
-git gc --prune=now --aggressive
-```
-
-## Instantly browse your working repository in gitweb.
-```sh
-git instaweb [--local] [--httpd=<httpd>] [--port=<port>] [--browser=<browser>]
 ```
 
 ## 在commit log中显示GPG签名
@@ -377,104 +325,41 @@ git config --global --unset <entry-name>
 git checkout --orphan <branch_name>
 ```
 
-## Extract file from another branch.
+## 展示任意分支某一文件的内容
 ```sh
 git show <branch_name>:<file_name>
 ```
 
-## List only the root and merge commits.
-```sh
-git log --first-parent
-```
-
-## Change previous two commits with an interactive rebase.
-```sh
-git rebase --interactive HEAD~2
-```
-
-## List all branch is WIP
-```sh
-git checkout master && git branch --no-merged
-```
-
-## Find guilty with binary search
-```sh
-git bisect start                    # Search start
-git bisect bad                      # Set point to bad commit
-git bisect good v2.6.13-rc2         # Set point to good commit|tag
-git bisect bad                      # Say current state is bad
-git bisect good                     # Say current state is good
-git bisect reset                    # Finish search
-
-```
-
-## Bypass pre-commit and commit-msg githooks
-```sh
-git commit --no-verify
-```
-
-## List commits and changes to a specific file (even through renaming)
-```sh
-git log --follow -p -- <file_path>
-```
-
-## Clone a single branch
+## clone下来指定的单一分支
 ```sh
 git clone -b <branch-name> --single-branch https://github.com/user/repo.git
 ```
 
-## Create and switch new branch
+## 创建并切换到该分支
 ```sh
 git checkout -b <branch-name>
 ```
 
-
-__Alternatives:__
-```sh
-git branch <branch-name> && git checkout <branch-name>
-```
-
-## Ignore file mode changes on commits
+## 关闭Ignore文件的功能
 ```sh
 git config core.fileMode false
 ```
 
-## Turn off git colored terminal output
-```sh
-git config --global color.ui false
-```
+## 展示本地所有的分支的commit
+最新的放在最上面
 
-## specific color settings
-```sh
-git config --global <specific command e.g branch, diff> <true, false or always>
-```
-
-## Show all local branches ordered by recent commits
 ```sh
 git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads/
 ```
 
-## Find lines matching the pattern (regex or string) in tracked files
-```sh
-git grep --heading --line-number 'foo bar'
-```
+## 在commit log中查找相关内容Search Commit log across all branches for given text
+通过grep查找，given-text：所需要查找的字段
 
-## Clone a shallow copy of a repository
-```sh
-git clone https://github.com/user/repo.git --depth 1
-```
-
-## Search Commit log across all branches for given text
 ```sh
 git log --all --grep='<given-text>'
 ```
 
-## Get first commit in a branch (from master)
-```sh
-git log master..<branch-name> --oneline | tail -1
-```
-
-## 把暂存区的内容放到工作区中
+## 把暂存区的指定file放到工作区中
 ```sh
 git reset <file-name>
 ```
