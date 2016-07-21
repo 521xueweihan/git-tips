@@ -4,9 +4,9 @@
 ## 所有人看过来
 1. Fork于[tips](https://github.com/git-tips/tips)项目
 
-2. **一定要先测试命令的效果后，再用于工作环境中，以防造成不能弥补的后果！**
+2. **一定要先测试命令的效果后**，再用于工作环境中，以防造成不能弥补的后果！**到时候别拿着砍刀来找我**
 
-3. 所有的命令都在`git version 2.7.4 (Apple Git-66)`下测试通过（安全可食用😊）
+3. 所有的命令都在`git version 2.7.4 (Apple Git-66)`下测试通过
 
 ---
 
@@ -129,6 +129,13 @@ git commit --amend
 ## 查看commit历史
 ```sh
 git log
+```
+
+## 显示本地执行过git命令
+就像shell的history一样
+
+```
+git reflog
 ```
 
 ## 修改作者名
