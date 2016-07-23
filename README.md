@@ -78,7 +78,7 @@ Git是一个“分布式版本管理工具”，简单的理解版本管理工�
 * [创建并切换到该分支](#创建并切换到该分支)
 * [关闭Ignore文件的功能](#关闭Ignore文件的功能)
 * [展示本地所有的分支的commit](#展示本地所有的分支的commit)
-* [在commit log中查找相关内容Search Commit log across all branches for given text](#在commit log中查找相关内容Search Commit log across all branches for given text)
+* [在commit log中查找相关内容](#在commit log中查找相关内容)
 * [把暂存区的指定file放到工作区中](#把暂存区的指定file放到工作区中)
 * [强制推送](#强制推送)
 * [增加远程仓库](#增加远程仓库)
