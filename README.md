@@ -1,5 +1,9 @@
-# Git的奇技淫巧😱
+# Git的奇技淫巧:see_no_evil:
 > Git常用命令集合，Fork于[tips](https://github.com/git-tips/tips)项目
+
+Git是一个“分布式版本管理工具”，简单的理解版本管理工具：大家在写东西的时候都用过“回撤”这个功能，但是回撤只能回撤几步，假如想要找回我三天之前的修改，光用“回撤”是找不回来的。而“版本管理工具”能记录每次的修改，只要提交到版本仓库，你就可以找到之前任何时刻的状态（文本状态）。
+
+下面的内容就是列举了常用的git命令和一些小技巧，可以通过"页面内查找"的方式进行快速查询：`Ctrl/Command+f`。
 
 ## 开卷必读
 *如果之前未使用过Git，可以学习[廖老师的免费Git教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)入门*
@@ -420,7 +424,7 @@ git config core.fileMode false
 git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads/
 ```
 
-## 在commit log中查找相关内容Search Commit log across all branches for given text
+## 在commit log中查找相关内容
 通过grep查找，given-text：所需要查找的字段
 
 ```sh
