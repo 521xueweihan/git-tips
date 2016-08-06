@@ -60,6 +60,7 @@ Git是一个“分布式版本管理工具”，简单的理解版本管理工�
 * [强制删除untracked的目录](#强制删除untracked的目录)
 * [重命名分支](#重命名分支)
 * [展示简化的commit历史](#展示简化的commit历史)
+* [查看某段代码是谁写的](#查看某段代码是谁写的)
 * [把某一个分支到导出成一个文件](#把某一个分支到导出成一个文件)
 * [从包中导入分支](#从包中导入分支)
 * [执行rebase之前自动stash](#执行rebase之前自动stash)
@@ -140,6 +141,11 @@ git branch -vv
 git branch -u origin/mybranch
 ```
 
+或者在push时加上`-u`参数
+```sh
+git push origin/mybranch -u
+```
+
 ## 删除本地分支
 ```sh
 git branch -d <local_branchname>
@@ -194,6 +200,12 @@ git commit --amend
 ## 查看commit历史
 ```sh
 git log
+```
+
+## 查看某段代码是谁写的
+blame的意思为‘责怪’，你懂的。
+```sh
+git blame <file_name>
 ```
 
 ## 显示本地执行过git命令
