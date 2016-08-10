@@ -13,8 +13,9 @@ Git是一个“分布式版本管理工具”，简单的理解版本管理工�
 3. 统一概念：
 	- 工作区：改动（增删文件和内容）
 	- 暂存区：输入命令：`git add 改动的文件名`，此次改动就放到了‘暂存区’
-	- 本地仓库：输入命令：`git commit 此次修改的描述`，此次改动就放到了’本地仓库’，每个commit，我叫它为一个‘版本’
-	- 远程仓库：输入命令：`git push 远程仓库`，此次改动就放到了‘远程仓库’（github等)
+	- 本地仓库(简称：本地)：输入命令：`git commit 此次修改的描述`，此次改动就放到了’本地仓库’，每个commit，我叫它为一个‘版本’。
+	- 远程仓库(简称：远程)：输入命令：`git push 远程仓库`，此次改动就放到了‘远程仓库’（github等)
+	- commit-id：输出命令：`git log`，最上面那行`commit xxxxxx`，后面的字符串就是commit-id
 4. 如果喜欢这个项目，欢迎Star、提交Pr、[反馈问题](https://github.com/521xueweihan/git-tips/issues)😊
 
 ## 目录
@@ -30,8 +31,11 @@ Git是一个“分布式版本管理工具”，简单的理解版本管理工�
 * [关联远程分支](#关联远程分支)
 * [删除本地分支](#删除本地分支)
 * [删除远程分支](#删除远程分支)
-* [删除本地标签(tag)](#删除本地标签(tag))
-* [删除远程标签(tag)](#删除远程标签(tag))
+* [查看标签(tag)](#查看标签\(tag\))
+* [本地创建标签](#本地创建标签)
+* [推送标签到远程仓库](#推送标签到远程仓库)
+* [删除本地标签](#删除本地标签)
+* [删除远程标签](#删除远程标签)
 * [放弃工作区的修改](#放弃工作区的修改)
 * [回到某一个commit的状态，并重新增添一个commit](#回到某一个commit的状态，并重新增添一个commit)
 * [回到某个commit的状态，并删除后面的commit](#回到某个commit的状态，并删除后面的commit)
@@ -65,7 +69,6 @@ Git是一个“分布式版本管理工具”，简单的理解版本管理工�
 * [从包中导入分支](#从包中导入分支)
 * [执行rebase之前自动stash](#执行rebase之前自动stash)
 * [从远程仓库根据ID，拉下某一状态，到本地分支](#从远程仓库根据ID，拉下某一状态，到本地分支)
-* [展示当前分支的最近的tag](#展示当前分支的最近的tag)
 * [详细展示一行中的修改](#详细展示一行中的修改)
 * [清除`.gitignore`文件中记录的文件](#清除`.gitignore`文件中记录的文件)
 * [展示所有alias和configs.](#展示所有alias和configs.)
@@ -161,12 +164,44 @@ git push origin --delete <remote_branchname>
 git push origin :<remote_branchname>
 ```
 
-## 删除本地标签(tag)
+## 查看标签(tag)
+```
+git tag
+```
+
+展示当前分支的最近的tag
+```sh
+git describe --tags --abbrev=0
+```
+
+## 创建标签
+```sh
+git tag <version-number>
+```
+
+默认tag是打在最近的一次commit上，如果需要指定commit打tag：
+```sh
+$ git tag -a <version-number> -m "v1.0 发布(描述)" <commit-id>
+```
+
+## 推送标签到远程仓库
+首先要保证本地创建好了标签才可以推送标签到远程仓库：
+```sh
+git push origin <local-version-number>
+```
+
+一次性推送所有标签，同步到远程仓库：
+```
+git push origin --tags
+```
+
+## 删除本地标签
 ```sh
 git tag -d <tag-name>
 ```
 
-## 删除远程标签(tag)
+## 删除远程标签
+删除远程标签需要**先删除本地标签**，再执行下面的命令
 ```sh
 git push origin :refs/tags/<tag-name>
 ```
@@ -361,11 +396,6 @@ git rebase --autostash
 ## 从远程仓库根据ID，拉下某一状态，到本地分支
 ```sh
 git fetch origin pull/<id>/head:<branch-name>
-```
-
-## 展示当前分支的最近的tag
-```sh
-git describe --tags --abbrev=0
 ```
 
 ## 详细展示一行中的修改
