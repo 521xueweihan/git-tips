@@ -151,17 +151,17 @@ git push origin/mybranch -u
 
 ## 删除本地分支
 ```sh
-git branch -d <local_branchname>
+git branch -d <local-branchname>
 ```
 
 ## 删除远程分支
 ```sh
-git push origin --delete <remote_branchname>
+git push origin --delete <remote-branchname>
 ```
 
 或者  
 ```sh
-git push origin :<remote_branchname>
+git push origin :<remote-branchname>
 ```
 
 ## 查看标签(tag)
@@ -208,7 +208,7 @@ git push origin :refs/tags/<tag-name>
 
 ## 放弃工作区的修改
 ```sh
-git checkout <file_name>
+git checkout <file-name>
 ```
 
 放弃所有修改：  
@@ -240,12 +240,11 @@ git log
 ## 查看某段代码是谁写的
 blame的意思为‘责怪’，你懂的。
 ```sh
-git blame <file_name>
+git blame <file-name>
 ```
 
 ## 显示本地执行过git命令
 就像shell的history一样
-
 ```
 git reflog
 ```
@@ -333,7 +332,7 @@ git stash clear
 
 ## 从stash中拿出某个文件的修改
 ```sh
-git checkout <stash@{n}> -- <file_path>
+git checkout <stash@{n}> -- <file-path>
 ```
 
 ## 展示所有tracked的文件
@@ -357,14 +356,14 @@ git ls-files --others -i --exclude-standard
 2. 不会影响tracked的文件的改动，只会删除untracked的文件
 
 ```sh
-git clean <file_name> -f
+git clean <file-name> -f
 ```
 
 ## 强制删除untracked的目录
 可以用来删除新建的目录，**注意**:这个命令也可以用来删除untracked的文件。详情见上一条
 
 ```sh
-git clean <directory_name> -df
+git clean <directory-name> -df
 ```
 
 ## 重命名分支
@@ -436,12 +435,12 @@ git config --global --unset <entry-name>
 ## 新建并切换到新分支上，同时这个分支没有任何commit
 相当于保存修改，但是重写commit历史  
 ```sh
-git checkout --orphan <branch_name>
+git checkout --orphan <branch-name>
 ```
 
 ## 展示任意分支某一文件的内容
 ```sh
-git show <branch_name>:<file_name>
+git show <branch-name>:<file-name>
 ```
 
 ## clone下来指定的单一分支
