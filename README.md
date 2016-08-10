@@ -24,21 +24,21 @@ Git是一个“分布式版本管理工具”，简单的理解版本管理工�
 * [重设第一个commit](#重设第一个commit)
 * [展示工作区和暂存区的不同](#展示工作区和暂存区的不同)
 * [展示暂存区和最近版本的不同](#展示暂存区和最近版本的不同)
-* [展示暂存区、工作区和最近版本的不同](#展示暂存区、工作区和最近版本的不同)
+* [展示暂存区、工作区和最近版本的不同](#展示暂存区工作区和最近版本的不同)
 * [快速切换分支](#快速切换分支)
 * [删除已经合并到master的分支](#删除已经合并到master的分支)
 * [展示所有的分支关联的远程仓库](#展示所有的分支关联的远程仓库)
 * [关联远程分支](#关联远程分支)
 * [删除本地分支](#删除本地分支)
 * [删除远程分支](#删除远程分支)
-* [查看标签(tag)](#查看标签\(tag\))
+* [查看标签](#查看标签)
 * [本地创建标签](#本地创建标签)
 * [推送标签到远程仓库](#推送标签到远程仓库)
 * [删除本地标签](#删除本地标签)
 * [删除远程标签](#删除远程标签)
 * [放弃工作区的修改](#放弃工作区的修改)
-* [回到某一个commit的状态，并重新增添一个commit](#回到某一个commit的状态，并重新增添一个commit)
-* [回到某个commit的状态，并删除后面的commit](#回到某个commit的状态，并删除后面的commit)
+* [回到某一个commit的状态，并重新增添一个commit](#回到某一个commit的状态并重新增添一个commit)
+* [回到某个commit的状态，并删除后面的commit](#回到某个commit的状态并删除后面的commit)
 * [修改上一个commit的描述](#修改上一个commit的描述)
 * [查看commit历史](#查看commit历史)
 * [显示本地执行过git命令](#显示本地执行过git命令)
@@ -48,13 +48,13 @@ Git是一个“分布式版本管理工具”，简单的理解版本管理工�
 * [列出本地和远程分支](#列出本地和远程分支)
 * [列出远程分支](#列出远程分支)
 * [查看两个星期内的改动](#查看两个星期内的改动)
-* [把A分支的某一个commit，放到B分支上](#把A分支的某一个commit，放到B分支上)
+* [把A分支的某一个commit，放到B分支上](#把A分支的某一个commit放到B分支上)
 * [给git命令起别名](#给git命令起别名)
-* [存储当前的修改，但不用提交commit](#存储当前的修改，但不用提交commit)
-* [保存当前状态，包括untracked的文件](#保存当前状态，包括untracked的文件)
+* [存储当前的修改，但不用提交commit](#存储当前的修改但不用提交commit)
+* [保存当前状态，包括untracked的文件](#保存当前状态包括untracked的文件)
 * [展示所有stashes](#展示所有stashes)
 * [回到某个stash的状态](#回到某个stash的状态)
-* [回到最后一个stash的状态，并删除这个stash](#回到最后一个stash的状态，并删除这个stash)
+* [回到最后一个stash的状态，并删除这个stash](#回到最后一个stash的状态并删除这个stash)
 * [删除所有的stash](#删除所有的stash)
 * [从stash中拿出某个文件的修改](#从stash中拿出某个文件的修改)
 * [展示所有tracked的文件](#展示所有tracked的文件)
@@ -68,21 +68,21 @@ Git是一个“分布式版本管理工具”，简单的理解版本管理工�
 * [把某一个分支到导出成一个文件](#把某一个分支到导出成一个文件)
 * [从包中导入分支](#从包中导入分支)
 * [执行rebase之前自动stash](#执行rebase之前自动stash)
-* [从远程仓库根据ID，拉下某一状态，到本地分支](#从远程仓库根据ID，拉下某一状态，到本地分支)
+* [从远程仓库根据ID，拉下某一状态，到本地分支](#从远程仓库根据ID拉下某一状态-到本地分支)
 * [详细展示一行中的修改](#详细展示一行中的修改)
-* [清除`.gitignore`文件中记录的文件](#清除`.gitignore`文件中记录的文件)
-* [展示所有alias和configs.](#展示所有alias和configs.)
+* [清除`.gitignore`文件中记录的文件](#清除gitignore文件中记录的文件)
+* [展示所有alias和configs](#展示所有alias和configs)
 * [展示忽略的文件](#展示忽略的文件)
-* [commit历史中显示Branch1有的，但是Branch2没有commit](#commit历史中显示Branch1有的，但是Branch2没有commit)
-* [在commit log中显示GPG签名](#在commit log中显示GPG签名)
+* [commit历史中显示Branch1有的，但是Branch2没有commit](#commit历史中显示Branch1有的但是Branch2没有commit)
+* [在commit log中显示GPG签名](#在commit-log中显示GPG签名)
 * [删除全局设置](#删除全局设置)
-* [新建并切换到新分支上，同时这个分支没有任何commit](#新建并切换到新分支上，同时这个分支没有任何commit)
+* [新建并切换到新分支上，同时这个分支没有任何commit](#新建并切换到新分支上同时这个分支没有任何commit)
 * [展示任意分支某一文件的内容](#展示任意分支某一文件的内容)
 * [clone下来指定的单一分支](#clone下来指定的单一分支)
 * [创建并切换到该分支](#创建并切换到该分支)
 * [关闭Ignore文件的功能](#关闭Ignore文件的功能)
 * [展示本地所有的分支的commit](#展示本地所有的分支的commit)
-* [在commit log中查找相关内容](#在commit log中查找相关内容)
+* [在commit log中查找相关内容](#在commit-log中查找相关内容)
 * [把暂存区的指定file放到工作区中](#把暂存区的指定file放到工作区中)
 * [强制推送](#强制推送)
 * [增加远程仓库](#增加远程仓库)
@@ -164,7 +164,7 @@ git push origin --delete <remote-branchname>
 git push origin :<remote-branchname>
 ```
 
-## 查看标签(tag)
+## 查看标签
 ```
 git tag
 ```
@@ -174,7 +174,7 @@ git tag
 git describe --tags --abbrev=0
 ```
 
-## 创建标签
+## 本地创建标签
 ```sh
 git tag <version-number>
 ```
@@ -402,12 +402,12 @@ git fetch origin pull/<id>/head:<branch-name>
 git diff --word-diff
 ```
 
-## 清除`.gitignore`文件中记录的文件
+## 清除gitignore文件中记录的文件
 ```sh
 git clean -X -f
 ```
 
-## 展示所有alias和configs.
+## 展示所有alias和configs
 ```sh
 git config --list
 ```
