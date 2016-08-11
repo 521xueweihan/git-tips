@@ -80,7 +80,7 @@ Git是一个“分布式版本管理工具”，简单的理解版本管理工�
 * [展示任意分支某一文件的内容](#展示任意分支某一文件的内容)
 * [clone下来指定的单一分支](#clone下来指定的单一分支)
 * [创建并切换到该分支](#创建并切换到该分支)
-* [关闭Ignore文件的功能](#关闭Ignore文件的功能)
+* [忽略文件的权限变化](#忽略文件的权限变化)
 * [展示本地所有的分支的commit](#展示本地所有的分支的commit)
 * [在commit log中查找相关内容](#在commit-log中查找相关内容)
 * [把暂存区的指定file放到工作区中](#把暂存区的指定file放到工作区中)
@@ -109,6 +109,11 @@ git update-ref -d HEAD
 输出**工作区**和**暂存区**的different(不同)。
 ```sh
 git diff
+```
+
+还可以展示本地仓库中任意两个commit之间的文件变动：
+```sh
+git diff <commit-id> <commit-id>
 ```
 
 ## 展示暂存区和最近版本的不同
@@ -453,7 +458,8 @@ git clone -b <branch-name> --single-branch https://github.com/user/repo.git
 git checkout -b <branch-name>
 ```
 
-## 关闭Ignore文件的功能
+## 忽略文件的权限变化
+不再将文件的权限变化视作改动
 ```sh
 git config core.fileMode false
 ```
