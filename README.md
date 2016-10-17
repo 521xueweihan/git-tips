@@ -94,7 +94,7 @@ git help -g
 ```
 
 ## 回到远程仓库的状态
-抛弃本地仓库的所有版本(commit)，回到远程仓库的状态。  
+抛弃本地所有的修改，回到远程仓库的状态。  
 ```sh
 git fetch --all && git reset --hard origin/master
 ```
@@ -413,8 +413,11 @@ git clean -X -f
 ```
 
 ## 展示所有alias和configs
+**注意：** config分为：当前目录（local）和全局（golbal）的config，默认为当前目录的config
+
 ```sh
-git config --list
+git config --local --list (当前目录)
+git config --global --list (全局)
 ```
 
 ## 展示忽略的文件
