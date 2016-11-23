@@ -3,7 +3,7 @@
 
 Git是一个“分布式版本管理工具”，简单的理解版本管理工具：大家在写东西的时候都用过“回撤”这个功能，但是回撤只能回撤几步，假如想要找回我三天之前的修改，光用“回撤”是找不回来的。而“版本管理工具”能记录每次的修改，只要提交到版本仓库，你就可以找到之前任何时刻的状态（文本状态）。
 
-下面的内容就是列举了常用的git命令和一些小技巧，可以通过"页面内查找"的方式进行快速查询：`Ctrl/Command+f`。
+下面的内容就是列举了常用的Git命令和一些小技巧，可以通过"页面内查找"的方式进行快速查询：`Ctrl/Command+f`。
 
 ## 开卷必读
 *如果之前未使用过Git，可以学习[廖老师的免费Git教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)入门*
@@ -14,7 +14,7 @@ Git是一个“分布式版本管理工具”，简单的理解版本管理工�
 	- 工作区：改动（增删文件和内容）
 	- 暂存区：输入命令：`git add 改动的文件名`，此次改动就放到了‘暂存区’
 	- 本地仓库(简称：本地)：输入命令：`git commit 此次修改的描述`，此次改动就放到了’本地仓库’，每个commit，我叫它为一个‘版本’。
-	- 远程仓库(简称：远程)：输入命令：`git push 远程仓库`，此次改动就放到了‘远程仓库’（github等)
+	- 远程仓库(简称：远程)：输入命令：`git push 远程仓库`，此次改动就放到了‘远程仓库’（GitHub等)
 	- commit-id：输出命令：`git log`，最上面那行`commit xxxxxx`，后面的字符串就是commit-id
 4. 如果喜欢这个项目，欢迎Star、提交Pr、[反馈问题](https://github.com/521xueweihan/git-tips/issues)😊
 
@@ -27,10 +27,15 @@ Git是一个“分布式版本管理工具”，简单的理解版本管理工�
 * [展示暂存区、工作区和最近版本的不同](#展示暂存区工作区和最近版本的不同)
 * [快速切换分支](#快速切换分支)
 * [删除已经合并到master的分支](#删除已经合并到master的分支)
-* [展示所有的分支关联的远程仓库](#展示所有的分支关联的远程仓库)
+* [展示本地分支关联远程仓库的情况](#展示本地分支关联远程仓库的情况)
 * [关联远程分支](#关联远程分支)
+* [列出所有远程分支](#列出所有远程分支)
+* [列出本地和远程分支](#列出本地和远程分支)
+* [创建并切换到本地分支](#创建并切换到本地分支)
+* [创建并切换到远程分支](#创建并切换到远程分支)
 * [删除本地分支](#删除本地分支)
 * [删除远程分支](#删除远程分支)
+* [重命名本地分支](#重命名本地分支)
 * [查看标签](#查看标签)
 * [本地创建标签](#本地创建标签)
 * [推送标签到远程仓库](#推送标签到远程仓库)
@@ -44,9 +49,8 @@ Git是一个“分布式版本管理工具”，简单的理解版本管理工�
 * [显示本地执行过git命令](#显示本地执行过git命令)
 * [修改作者名](#修改作者名)
 * [修改远程仓库的url](#修改远程仓库的url)
+* [增加远程仓库](#增加远程仓库)
 * [列出所有远程仓库](#列出所有远程仓库)
-* [列出本地和远程分支](#列出本地和远程分支)
-* [列出远程分支](#列出远程分支)
 * [查看两个星期内的改动](#查看两个星期内的改动)
 * [把A分支的某一个commit，放到B分支上](#把A分支的某一个commit放到B分支上)
 * [给git命令起别名](#给git命令起别名)
@@ -62,7 +66,6 @@ Git是一个“分布式版本管理工具”，简单的理解版本管理工�
 * [展示所有忽略的文件](#展示所有忽略的文件)
 * [强制删除untracked的文件](#强制删除untracked的文件)
 * [强制删除untracked的目录](#强制删除untracked的目录)
-* [重命名分支](#重命名分支)
 * [展示简化的commit历史](#展示简化的commit历史)
 * [查看某段代码是谁写的](#查看某段代码是谁写的)
 * [把某一个分支到导出成一个文件](#把某一个分支到导出成一个文件)
@@ -79,13 +82,12 @@ Git是一个“分布式版本管理工具”，简单的理解版本管理工�
 * [新建并切换到新分支上，同时这个分支没有任何commit](#新建并切换到新分支上同时这个分支没有任何commit)
 * [展示任意分支某一文件的内容](#展示任意分支某一文件的内容)
 * [clone下来指定的单一分支](#clone下来指定的单一分支)
-* [创建并切换到该分支](#创建并切换到该分支)
+* [忽略某个文件的改动](#忽略某个文件的改动)
 * [忽略文件的权限变化](#忽略文件的权限变化)
 * [展示本地所有的分支的commit](#展示本地所有的分支的commit)
 * [在commit log中查找相关内容](#在commit-log中查找相关内容)
 * [把暂存区的指定file放到工作区中](#把暂存区的指定file放到工作区中)
 * [强制推送](#强制推送)
-* [增加远程仓库](#增加远程仓库)
 * [联系我](#联系我)
 
 ## 展示帮助信息
@@ -138,7 +140,7 @@ git checkout -
 git branch --merged master | grep -v '^\*\|  master' | xargs -n 1 git branch -d
 ```
 
-## 展示所有的分支关联的远程仓库
+## 展示本地分支关联远程仓库的情况
 ```sh
 git branch -vv
 ```
@@ -154,6 +156,28 @@ git branch -u origin/mybranch
 git push origin/mybranch -u
 ```
 
+## 列出所有远程分支
+-r参数相当于：remote
+```sh
+git branch -r
+```
+
+## 列出本地和远程分支
+-a参数相当于：all
+```sh
+git branch -a
+```
+
+## 创建并切换到本地分支
+```sh
+git checkout -b <branch-name>
+```
+
+## 创建并切换到远程分支
+```sh
+git checkout -b <branch-name> origin/<branch-name>
+```
+
 ## 删除本地分支
 ```sh
 git branch -d <local-branchname>
@@ -167,6 +191,11 @@ git push origin --delete <remote-branchname>
 或者  
 ```sh
 git push origin :<remote-branchname>
+```
+
+## 重命名本地分支
+```sh
+git branch -m <new-branch-name>
 ```
 
 ## 查看标签
@@ -264,21 +293,14 @@ git commit --amend --author='Author Name <email@address.com>'
 git remote set-url origin <URL>
 ```
 
+## 增加远程仓库
+```sh
+git remote add origin <remote-url>
+```
+
 ## 列出所有远程仓库
 ```sh
 git remote
-```
-
-## 列出本地和远程分支
--a参数相当于：all
-```sh
-git branch -a
-```
-
-## 列出远程分支
--r参数相当于：remote
-```sh
-git branch -r
 ```
 
 ## 查看两个星期内的改动
@@ -371,11 +393,6 @@ git clean <file-name> -f
 git clean <directory-name> -df
 ```
 
-## 重命名分支
-```sh
-git branch -m <new-branch-name>
-```
-
 ## 展示简化的commit历史
 ```sh
 git log --pretty=oneline --graph --decorate --all
@@ -456,9 +473,15 @@ git show <branch-name>:<file-name>
 git clone -b <branch-name> --single-branch https://github.com/user/repo.git
 ```
 
-## 创建并切换到该分支
-```sh
-git checkout -b <branch-name>
+## 忽略某个文件的改动
+关闭 track 指定文件的改动，也就是 Git 将不会在记录这个文件的改动
+```
+git update-index --assume-unchanged path/to/file
+```
+
+恢复 track 指定文件的改动
+```
+git update-index --no-assume-unchanged path/to/file
 ```
 
 ## 忽略文件的权限变化
@@ -489,11 +512,6 @@ git reset <file-name>
 ## 强制推送
 ```sh
 git push -f <remote-name> <branch-name>
-```
-
-## 增加远程仓库
-```sh
-git remote add origin <remote-url>
 ```
 
 
