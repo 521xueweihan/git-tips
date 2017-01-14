@@ -19,7 +19,6 @@ Git是一个“分布式版本管理工具”，简单的理解版本管理工�
 4. 如果喜欢这个项目，欢迎Star、提交Pr、[反馈问题](https://github.com/521xueweihan/git-tips/issues)😊
 
 ## 目录
-* [GitHub Git 备忘单](https://services.github.com/on-demand/downloads/cn/github-git-cheat-sheet/)
 * [展示帮助信息](#展示帮助信息)
 * [回到远程仓库的状态](#回到远程仓库的状态)
 * [重设第一个commit](#重设第一个commit)
@@ -518,7 +517,6 @@ git push -f <remote-name> <branch-name>
 
 ## 联系我
 - 博客园：[削微寒](http://www.cnblogs.com/xueweihan/)
-- 邮箱：<a href="mailto:595666367@qq.com">发邮件给我</a>
 - 或者直接提Pr，Issues
 
 **[⬆ 返回顶部](#目录)**
