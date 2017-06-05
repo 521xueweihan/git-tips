@@ -43,6 +43,7 @@ Git是一个“分布式版本管理工具”，简单的理解版本管理工�
 * [删除远程标签](#删除远程标签)
 * [切回到某个标签](#切回到某个标签)
 * [放弃工作区的修改](#放弃工作区的修改)
+* [恢复删除的文件](#恢复删除的文件)
 * [回到某一个commit的状态，并重新增添一个commit](#回到某一个commit的状态并重新增添一个commit)
 * [回到某个commit的状态，并删除后面的commit](#回到某个commit的状态并删除后面的commit)
 * [修改上一个commit的描述](#修改上一个commit的描述)
@@ -255,6 +256,13 @@ git checkout <file-name>
 放弃所有修改：  
 ```sh
 git checkout .
+```
+
+## 恢复删除的文件
+```sh
+git rev-list -n 1 HEAD -- <file_path> #得到 deleting_commit
+
+git checkout <deleting_commit>^ -- <file_path> #回到删除文件 deleting_commit 之前的状态
 ```
 
 ## 回到某一个commit的状态，并重新增添一个commit
