@@ -86,7 +86,7 @@ Git是一个“分布式版本管理工具”，简单的理解版本管理工�
 * [clone下来指定的单一分支](#clone下来指定的单一分支)
 * [忽略某个文件的改动](#忽略某个文件的改动)
 * [忽略文件的权限变化](#忽略文件的权限变化)
-* [展示本地所有的分支的commit](#展示本地所有的分支的commit)
+* [以最后提交的顺序列出所有Git分支](#以最后提交的顺序列出所有Git分支)
 * [在commit log中查找相关内容](#在commit-log中查找相关内容)
 * [把暂存区的指定file放到工作区中](#把暂存区的指定file放到工作区中)
 * [强制推送](#强制推送)
@@ -273,7 +273,13 @@ git revert <commit-id>
 ## 回到某个commit的状态，并删除后面的commit
 和revert的区别：reset命令会抹去某个commit id之后的所有commit
 ```sh
-git reset <commit-id>
+git reset <commit-id>  #默认就是-mixed参数。
+
+git reset –mixed HEAD^  #回退至上个版本，它将重置HEAD到另外一个commit,并且重置暂存区以便和HEAD相匹配，但是也到此为止。工作区不会被更改。
+
+git reset –soft HEAD~3  #回退至三个版本之前，只回退了commit的信息，暂存区和工作区与回退之前保持一致。如果还要提交，直接commit即可   
+
+git reset –hard <commit-id>  #彻底回退到指定commit-id的状态，暂存区和工作区也会变为指定commit-id版本的内容
 ```
 
 ## 修改上一个commit的描述
@@ -505,8 +511,8 @@ git update-index --no-assume-unchanged path/to/file
 git config core.fileMode false
 ```
 
-## 展示本地所有的分支的commit
-最新的放在最上面
+## 以最后提交的顺序列出所有Git分支
+最新的放在最上面   
 
 ```sh
 git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads/
@@ -520,6 +526,7 @@ git log --all --grep='<given-text>'
 ```
 
 ## 把暂存区的指定file放到工作区中
+不添加参数，默认是-mixed
 ```sh
 git reset <file-name>
 ```
