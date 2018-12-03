@@ -292,6 +292,7 @@ git reset –hard <commit-id>  #彻底回退到指定commit-id的状态，暂存
 ```sh
 git commit --amend
 ```
+## test
 
 ## 查看commit历史
 ```sh
