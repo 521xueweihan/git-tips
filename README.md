@@ -37,6 +37,7 @@ Git是一个“分布式版本管理工具”，简单的理解版本管理工�
 * [删除远程分支](#删除远程分支)
 * [重命名本地分支](#重命名本地分支)
 * [查看标签](#查看标签)
+* [查看标签详细信息](#查看标签详细信息)
 * [本地创建标签](#本地创建标签)
 * [推送标签到远程仓库](#推送标签到远程仓库)
 * [删除本地标签](#删除本地标签)
@@ -204,10 +205,14 @@ git branch -m <new-branch-name>
 ```
 git tag
 ```
-
 展示当前分支的最近的tag
 ```sh
 git describe --tags --abbrev=0
+```
+
+## 查看标签详细信息
+```
+git tag -ln
 ```
 
 ## 本地创建标签
@@ -272,6 +277,7 @@ git revert <commit-id>
 
 ## 回到某个commit的状态，并删除后面的commit
 和revert的区别：reset命令会抹去某个commit id之后的所有commit
+
 ```sh
 git reset <commit-id>  #默认就是-mixed参数。
 
@@ -528,6 +534,7 @@ git log --all --grep='<given-text>'
 
 ## 把暂存区的指定file放到工作区中
 不添加参数，默认是-mixed
+
 ```sh
 git reset <file-name>
 ```
