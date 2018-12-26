@@ -91,6 +91,7 @@ Git是一个“分布式版本管理工具”，简单的理解版本管理工�
 * [在commit log中查找相关内容](#在commit-log中查找相关内容)
 * [把暂存区的指定file放到工作区中](#把暂存区的指定file放到工作区中)
 * [强制推送](#强制推送)
+* [一图详解](#一图详解)
 * [联系我](#联系我)
 
 ## 展示帮助信息
@@ -544,6 +545,9 @@ git reset <file-name>
 git push -f <remote-name> <branch-name>
 ```
 
+## 一图详解
+
+![](git.png)
 
 ## 联系我
 - 博客园：[削微寒](http://www.cnblogs.com/xueweihan/)
