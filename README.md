@@ -152,7 +152,7 @@ git diff <commit-id> <commit-id>
 
 ## 展示暂存区和最近版本的不同
 
-输出**暂存区**和本地最近的版本 (commit) 的d ifferent (不同)。
+输出**暂存区**和本地最近的版本 (commit) 的 different (不同)。
 ```sh
 git diff --cached
 ```
