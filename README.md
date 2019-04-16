@@ -679,7 +679,7 @@ npm install -g commitizen cz-conventional-changelog
 
 echo '{ "path": "cz-conventional-changelog" }' > ~/.czrc
 ```
-全局安装后使用 `git cz` 代替 `git commit`就可以了,如下图
+全局安装后使用 `git cz` 代替 `git commit`就可以了,如下图
 
 ![](./assets/gitcz.png)
 
