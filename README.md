@@ -653,7 +653,7 @@ git push -f <remote-name> <branch-name>
 * 主题内容: 描述为什么修改, 做了什么样的修改, 以及开发的思路等等
 * 页脚注释: 放 Breaking Changes 或 Closed Issues
 
-常用的修改项
+常用的修改项
 
 * type: commit 的类型
 * feat: 新特性
