@@ -85,12 +85,15 @@ Git是一个 “分布式版本管理工具”，简单的理解版本管理工�
 * [新建并切换到新分支上，同时这个分支没有任何 commit](#新建并切换到新分支上同时这个分支没有任何-commit)
 * [展示任意分支某一文件的内容](#展示任意分支某一文件的内容)
 * [clone 下来指定的单一分支](#clone-下来指定的单一分支)
+* [clone 最新一次提交](#clone-最新一次提交)
 * [忽略某个文件的改动](#忽略某个文件的改动)
 * [忽略文件的权限变化](#忽略文件的权限变化)
 * [以最后提交的顺序列出所有 Git 分支](#以最后提交的顺序列出所有-Git-分支)
 * [在 commit log 中查找相关内容](#在-commit-log-中查找相关内容)
 * [把暂存区的指定 file 放到工作区中](#把暂存区的指定-file-放到工作区中)
 * [强制推送](#强制推送)
+* [git配置http,socks代理](#git配置http,socks代理)
+* [git配置ssh代理](#git配置ssh代理)
 * [一图详解](#一图详解)
 * [优雅的提交Commit信息](#优雅的提交Commit信息)
 * [联系我](#联系我)
@@ -589,6 +592,14 @@ git show <branch-name>:<file-name>
 git clone -b <branch-name> --single-branch https://github.com/user/repo.git
 ```
 
+## clone 最新一次提交
+
+只会clone最近一次提交，将减少clone时间
+
+```sh
+git clone --depth=1 https://github.com/user/repo.git
+```
+
 ## 忽略某个文件的改动
 
 关闭 track 指定文件的改动，也就是 Git 将不会在记录这个文件的改动
@@ -641,6 +652,26 @@ git reset <file-name>
 ```sh
 git push -f <remote-name> <branch-name>
 ```
+
+## git配置http,socks代理
+
+```sh
+git config --global https.proxy 'http://127.0.0.1:8001'   # 适用于 privoxy将socks协议转为http协议的http端口
+git config --global http.proxy 'http://127.0.0.1:8001'
+git config --global socks.proxy "127.0.0.1:1080"
+```
+
+## git配置ssh代理
+
+```sh
+$ cat ~/.ssh/config
+Host gitlab.com
+ProxyCommand nc -X 5 -x 127.0.0.1:1080 %h %p    # 直接使用shadowsocks提供的socks5代理端口
+
+Host github.com
+ProxyCommand nc -X 5 -x 127.0.0.1:1080 %h %p    
+```
+
 
 ## 一图详解
 
