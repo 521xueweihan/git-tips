@@ -93,7 +93,7 @@ Git是一个 “分布式版本管理工具”，简单的理解版本管理工�
 * [把暂存区的指定 file 放到工作区中](#把暂存区的指定-file-放到工作区中)
 * [强制推送](#强制推送)
 * [git 配置 http 和 socks 代理](#git-配置-http-和-socks-代理)
-* [git配置ssh代理](#git配置ssh代理)
+* [git 配置 ssh 代理](#git-配置-ssh-代理)
 * [一图详解](#一图详解)
 * [优雅的提交Commit信息](#优雅的提交Commit信息)
 * [联系我](#联系我)
@@ -661,7 +661,7 @@ git config --global http.proxy 'http://127.0.0.1:8001'
 git config --global socks.proxy "127.0.0.1:1080"
 ```
 
-## git配置ssh代理
+## git 配置 ssh 代理
 
 ```sh
 $ cat ~/.ssh/config
