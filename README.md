@@ -423,6 +423,12 @@ git config --global alias.<handle> <command>
 git config --global alias.st status
 ```
 
+## 忽略ssl
+
+```
+git config --global http.sslVerify false
+```
+
 ## 存储当前的修改，但不用提交 commit
 
 详解可以参考[廖雪峰老师的 git 教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137602359178794d966923e5c4134bc8bf98dfb03aea3000)
