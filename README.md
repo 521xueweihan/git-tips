@@ -594,7 +594,7 @@ git clone -b <branch-name> --single-branch https://github.com/user/repo.git
 
 ## clone 最新一次提交
 
-只会clone最近一次提交，将减少clone时间
+只会 clone 最近一次提交，将减少 clone 时间
 
 ```sh
 git clone --depth=1 https://github.com/user/repo.git
@@ -656,7 +656,7 @@ git push -f <remote-name> <branch-name>
 ## git 配置 http 和 socks 代理
 
 ```sh
-git config --global https.proxy 'http://127.0.0.1:8001'   # 适用于 privoxy将socks协议转为http协议的http端口
+git config --global https.proxy 'http://127.0.0.1:8001'   # 适用于 privoxy 将 socks 协议转为 http 协议的 http 端口
 git config --global http.proxy 'http://127.0.0.1:8001'
 git config --global socks.proxy "127.0.0.1:1080"
 ```
@@ -666,7 +666,7 @@ git config --global socks.proxy "127.0.0.1:1080"
 ```sh
 $ cat ~/.ssh/config
 Host gitlab.com
-ProxyCommand nc -X 5 -x 127.0.0.1:1080 %h %p    # 直接使用shadowsocks提供的socks5代理端口
+ProxyCommand nc -X 5 -x 127.0.0.1:1080 %h %p    # 直接使用 shadowsocks 提供的 socks5 代理端口
 
 Host github.com
 ProxyCommand nc -X 5 -x 127.0.0.1:1080 %h %p    
