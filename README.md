@@ -318,10 +318,8 @@ git tag -d <tag-name>
 
 ## 删除远程标签
 
-删除远程标签需要**先删除本地标签**，再执行下面的命令：
-
 ```sh
-git push origin :refs/tags/<tag-name>
+git push origin --delete tag <tagname>
 ```
 
 ## 切回到某个标签
