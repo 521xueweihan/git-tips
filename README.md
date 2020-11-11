@@ -6,7 +6,7 @@ Git是一个 “分布式版本管理工具”，简单的理解版本管理工�
 下面的内容就是列举了常用的 Git 命令和一些小技巧，可以通过 "页面内查找" 的方式进行快速查询：`Ctrl/Command+f`。
 
 ## 开卷必读
-*如果之前未使用过 Git，可以学习 [Git 小白教程](http://rogerdudler.github.io/git-guide/index.zh.html)入门*
+*如果之前未使用过 Git，可以学习 [Git 小白教程](https://rogerdudler.github.io/git-guide/index.zh.html)入门*
 
 1. **一定要先测试命令的效果后**，再用于工作环境中，以防造成不能弥补的后果！**到时候别拿着砍刀来找我**
 2. 所有的命令都在`git version 2.7.4 (Apple Git-66)`下测试通过
@@ -359,11 +359,11 @@ git revert <commit-id>
 ```sh
 git reset <commit-id>  #默认就是-mixed参数。
 
-git reset  -- mixed HEAD^  #回退至上个版本，它将重置HEAD到另外一个commit,并且重置暂存区以便和HEAD相匹配，但是也到此为止。工作区不会被更改。
+git reset --mixed HEAD^  #回退至上个版本，它将重置HEAD到另外一个commit,并且重置暂存区以便和HEAD相匹配，但是也到此为止。工作区不会被更改。
 
-git reset -- soft HEAD~3  #回退至三个版本之前，只回退了commit的信息，暂存区和工作区与回退之前保持一致。如果还要提交，直接commit即可  
+git reset --soft HEAD~3  #回退至三个版本之前，只回退了commit的信息，暂存区和工作区与回退之前保持一致。如果还要提交，直接commit即可  
 
-git reset -- hard <commit-id>  #彻底回退到指定commit-id的状态，暂存区和工作区也会变为指定commit-id版本的内容
+git reset --hard <commit-id>  #彻底回退到指定commit-id的状态，暂存区和工作区也会变为指定commit-id版本的内容
 ```
 
 ## 修改上一个 commit 的描述
