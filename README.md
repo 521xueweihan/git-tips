@@ -1,7 +1,9 @@
-# Git的奇技淫巧:see_no_evil:
-> Git常用命令集合，Fork于[tips](https://github.com/git-tips/tips)项目
+# Git 的奇技淫巧:see_no_evil:
+> Git 常用命令集合，Fork 于[tips](https://github.com/git-tips/tips)项目
+>
+> 署名-非商业性使用-禁止演绎 4.0 国际
 
-Git是一个 “分布式版本管理工具”，简单的理解版本管理工具：大家在写东西的时候都用过 “回撤” 这个功能，但是回撤只能回撤几步，假如想要找回我三天之前的修改，光用 “回撤” 是找不回来的。而 “版本管理工具” 能记录每次的修改，只要提交到版本仓库，你就可以找到之前任何时刻的状态（文本状态）。
+Git 是一个 “分布式版本管理工具”，简单的理解版本管理工具：大家在写东西的时候都用过 “回撤” 这个功能，但是回撤只能回撤几步，假如想要找回我三天之前的修改，光用 “回撤” 是找不回来的。而 “版本管理工具” 能记录每次的修改，只要提交到版本仓库，你就可以找到之前任何时刻的状态（文本状态）。
 
 下面的内容就是列举了常用的 Git 命令和一些小技巧，可以通过 "页面内查找" 的方式进行快速查询：`Ctrl/Command+f`。
 
@@ -19,6 +21,7 @@ Git是一个 “分布式版本管理工具”，简单的理解版本管理工�
 4. 如果喜欢这个项目，欢迎 Star、提交 Pr、[反馈问题](https://github.com/521xueweihan/git-tips/issues)😊
 
 ## 目录
+* [脑图](#脑图)
 * [展示帮助信息](#展示帮助信息)
 * [回到远程仓库的状态](#回到远程仓库的状态)
 * [重设第一个commit](#重设第一个-commit)
@@ -97,9 +100,9 @@ Git是一个 “分布式版本管理工具”，简单的理解版本管理工�
 * [强制推送](#强制推送)
 * [git 配置 http 和 socks 代理](#git-配置-http-和-socks-代理)
 * [git 配置 ssh 代理](#git-配置-ssh-代理)
-* [一图详解](#一图详解)
-* [优雅的提交Commit信息](#优雅的提交Commit信息)
-* [联系我](#联系我)
+* [优雅的Commit信息](#优雅的Commit信息)
+* [commit工具](#commit工具)
+* [声明](#声明)
 
 ## 展示帮助信息
 ```sh
@@ -692,11 +695,11 @@ ProxyCommand nc -X 5 -x 127.0.0.1:1080 %h %p
 ```
 
 
-## 一图详解
+## 脑图
 
 ![](./assets/git.png)
 
-## 优雅的提交Commit信息
+## 优雅的Commit信息
 
 使用[Angular团队提交规范](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines)
 
@@ -721,7 +724,7 @@ ProxyCommand nc -X 5 -x 127.0.0.1:1080 %h %p
 * body: commit 具体修改内容, 可以分为多行
 * footer: 一些备注, 通常是 BREAKING CHANGE 或修复的 bug 的链接.
 
-### 使用`Commitizen`代替 git commit
+## commit工具
 
 可以使用[cz-cli](https://github.com/commitizen/cz-cli)工具代替 `git commit`
 
@@ -736,8 +739,8 @@ echo '{ "path": "cz-conventional-changelog" }' > ~/.czrc
 
 ![](./assets/gitcz.png)
 
-## 联系我
-- 博客园：[削微寒](http://www.cnblogs.com/xueweihan/)
-- 或者直接提 Pr，Issues
+
+## 声明
+<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh"><img alt="知识共享许可协议" style="border-width: 0" src="https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png"></a><br>本作品采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">署名-非商业性使用-禁止演绎 4.0 国际</a> 进行许可。
 
 **[⬆ 返回顶部](#目录)**
