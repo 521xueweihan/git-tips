@@ -77,7 +77,7 @@ Git 是一个 “分布式版本管理工具”，简单的理解版本管理工
 * [强制删除 untracked 的目录](#强制删除-untracked-的目录)
 * [展示简化的 commit 历史](#展示简化的-commit-历史)
 * [查看某段代码是谁写的](#查看某段代码是谁写的)
-* [把某一个分支到导出成一个文件](#把某一个分支到导出成一个文件)
+* [把某一个分支导出成一个文件](#把某一个分支导出成一个文件)
 * [从包中导入分支](#从包中导入分支)
 * [执行 rebase 之前自动 stash](#执行-rebase-之前自动-stash)
 * [从远程仓库根据 ID，拉下某一状态，到本地分支](#从远程仓库根据-ID-拉下某一状态-到本地分支)
@@ -528,7 +528,7 @@ git clean <directory-name> -df
 git log --pretty=oneline --graph --decorate --all
 ```
 
-## 把某一个分支到导出成一个文件
+## 把某一个分支导出成一个文件
 ```sh
 git bundle create <file> <branch-name>
 ```
